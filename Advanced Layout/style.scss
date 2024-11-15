@@ -1,0 +1,324 @@
+@import "sass/fonts"; //importing fonts
+@import "sass/variables"; //importing sass variables
+@import "sass/mixins";
+
+//Desktop Size and above
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $primary;
+  font-family: $font-def;
+  color: $primary;
+}
+
+button {
+  @include btn; //using mixin for maintaing code
+}
+
+h3,
+b {
+  color: $links;
+  font-family: $font-heading;
+}
+//navigation bar
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $links;
+
+  .logo {
+    color: $text;
+    margin: $small-spacing;
+    font-size: $fs3;
+    font-family: $font-heading;
+  }
+
+  ul {
+    margin: $small-spacing;
+    color: $text;
+    text-decoration: none;
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+    margin: $small-spacing;
+  }
+
+  .S-button {
+    @include btn;
+    box-shadow: $secondary 0px 0px 20px;
+    margin-right: $small-spacing;
+  }
+}
+
+//main-container
+.movie-content {
+  display: grid;
+  max-width: 900px;
+  padding: $large-sd;
+  margin: auto auto;
+}
+//movie-1 Card
+.m1-card {
+  @include shadow2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $text;
+  margin-top: $small-spacing;
+}
+//movie-1 Image
+.m1-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  overflow: auto;
+  max-height: 300px;
+}
+//movie-1 Text
+.m1-text {
+  display: flex;
+  flex-grow: 1;
+  margin: $large-sd;
+  font-size: 1.5em;
+}
+
+.m1b {
+  @include btn;
+  width: 100%;
+  margin-left: 16px;
+  margin-top: auto;
+}
+//Container for two movie cards
+.movies-container {
+  display: flex;
+  margin-top: $small-spacing;
+  gap: $small-spacing;
+}
+//movie-2 Card
+.m2-card {
+  @include shadow2;
+  margin-top: $small-spacing;
+  justify-content: space-between;
+  width: 50%;
+  background-color: $text;
+  display: flex;
+  flex-direction: column;
+}
+
+.m2-image {
+  width: 100%;
+  height: auto;
+}
+
+.m2-text {
+  margin: $large-sd;
+  font-size: 1.5em;
+  flex-grow: 1;
+
+  button {
+    @include btn;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+//movie-3 Card
+.m3-card {
+  @extend.m2-card; //using @extend function to use same style from another selector.
+}
+
+.m3-image {
+  @extend.m2-image; //using @extend function to use same style from another selector.
+}
+
+.m3-text {
+  @extend.m2-text; //using @extend function to use same style from another selector.
+
+  button {
+    @include btn;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+//movie-4 Card
+.m4-card {
+  @include shadow2;
+  margin-top: $small-spacing;
+  background-color: $text;
+  display: flex;
+
+  button {
+    @include btn;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+
+.m4-image {
+  width: 50%;
+  height: auto;
+}
+
+.m4-text {
+  margin: $large-sd;
+  font-size: 1.5em;
+}
+//movie-5 Card
+.m5-card {
+  @extend .m4-card; //using @extend function to use same style from another selector.
+}
+
+.m5-image {
+  @extend.m4-image; //using @extend function to use same style from another selector.
+}
+
+.m5-text {
+  @extend.m4-text; //using @extend function to use same style from another selector.
+  button {
+    @include btn;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+
+.m6-card {
+  @extend .m4-card; //using @extend function to use same style from another selector.
+}
+
+.m6-image {
+  @extend.m4-image; //using @extend function to use same style from another selector.
+}
+
+.m6-text {
+  @extend.m4-text; //using @extend function to use same style from another selector.
+  button {
+    @include btn;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+//-Mobile Phones-
+@media (max-width: 719px) {
+  nav {
+    width: 100%;
+    font-size: $fs1;
+  }
+  ul {
+    display: none;
+  }
+
+  .movie-content {
+    max-width: 900px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .m1-card {
+    @include shadow2; //using @include to import a mixin apply
+    display: flex;
+    flex-direction: column;
+    background-color: $text;
+  }
+
+  .m1-text {
+    flex-direction: column;
+  }
+
+  p {
+    margin: $small-spacing;
+    font-size: 1.5em;
+  }
+
+  .m1b {
+    @include btn;
+    width: 100%;
+    height: auto;
+  }
+
+  .movies-container {
+    flex-wrap: wrap;
+  }
+
+  .m2-card {
+    width: 100%;
+  }
+
+  .m3-card {
+    flex-direction: column;
+
+    button {
+      margin-top: $large-sm;
+    }
+  }
+
+  .m3-image {
+    width: 100%;
+  }
+  .m4-card {
+    flex-direction: column;
+  }
+  .m4-image {
+    width: 100%;
+  }
+}
+
+//-Tablet Devices
+@media (min-width: 720px) and (max-width: 1024px) {
+  .movie-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+    grid-gap: 10px;
+    padding: none;
+    margin: auto auto;
+  }
+
+  .movies-container {
+    display: contents; // it shows the child elements while hiding the parent element.
+  }
+
+  .m1-image {
+    width: 100%;
+    max-height: none;
+  }
+
+  .m1-text {
+    flex-direction: column;
+    margin: 0;
+    margin-right: $large-sd;
+    margin-left: $large-sd;
+
+    .m1b {
+      margin-bottom: $large-st;
+    }
+  }
+  .m2-card {
+    width: 100%;
+  }
+
+  .m3-card {
+    width: 100%;
+  }
+
+  .m4-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .m4-image {
+    width: 100%;
+  }
+
+  .m4-text {
+    flex-grow: 1;
+  }
+
+  .m5-card {
+    flex-direction: column;
+  }
+  .m6-card {
+    flex-direction: column;
+  }
+}

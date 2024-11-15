@@ -1,0 +1,18 @@
+//Mixins to make the stylesheet look cleaner and shorter
+
+//button styling to use in main stylesheet
+@mixin btn {
+  font-size: $fs2;
+  border-radius: $small-spacing;
+  font-family: $font-heading;
+  background-color: $links;
+}
+
+//shadow styling
+@mixin shadow1($color) {
+  box-shadow: $color 5px 5px;
+}
+//shadow styling
+@mixin shadow2 {
+  box-shadow: $secondary 5px 5px 5.9px;
+}

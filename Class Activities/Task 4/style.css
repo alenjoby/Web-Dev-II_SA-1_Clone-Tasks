@@ -1,0 +1,32 @@
+body{
+  background-color: black;
+}
+
+h1{
+  color: white;
+  font-size: 40px;
+  text-align: center;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+  
+  .image-container img {
+    width: 300px; 
+    height: 450px; 
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  
+  .image-container img {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.375);
+  }
+  
+  .image-container img:hover {
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.721);
+  }
